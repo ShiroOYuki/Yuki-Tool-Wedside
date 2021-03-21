@@ -1,0 +1,52 @@
+{%extends "base.html"%}
+
+{%block title%}ASCII PICTUER{%endblock%}
+
+{%block style%}
+
+{%endblock%}
+
+{%block main%}
+<figure class="text-center">
+    <div class="container">
+        <h1 class="display-4">&gt;&gt;ASCII PICTUER&lt;&lt;</h1>
+        <hr class="my-4">
+        {% if alert != "" %}
+        <div class="row">
+            <div class="alert alert-warning" role="alert">
+                {{alert}}
+            </div>
+        </div>
+        {%endif%}
+        <form method="post" action=/ascii_pic>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Picture URL</span>
+                        <input type="text" class="form-control" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-default" name="pic_url">
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Picture TXT</button>
+        </form>
+        {% if getfile == True %}
+        <div class="row-2">
+            <p></p>
+        </div>
+        <div class="row">
+            <h6>===================================================</h6>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <a class="btn btn-primary" href="/static/img/pic.txt" download="pic.txt" role="button">Download</a>
+            </div>
+            <div class="col"></div>
+        </div>
+        {%endif%}
+    </div>
+</figure>
+{%endblock%}
